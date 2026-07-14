@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Southern Folk Arts: Quilt Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Name entry screen -->
+  <div id="name-overlay" class="overlay">
+    <div class="overlay-card stitched">
+      <p class="eyebrow">Southern Folk Arts &middot; Class Activity</p>
+      <h1>Quilt Room</h1>
+      <p class="overlay-copy">
+        Build your own patchwork rooms, one wall at a time. Choose quilt
+        blocks &mdash; some traditional, some original &mdash; and hang them
+        wherever you like. Fill five in a room to open the next doorway.
+      </p>
+      <label for="name-input">What's your name?</label>
+      <input id="name-input" type="text" maxlength="30" placeholder="e.g. Jordan" autocomplete="off">
+      <button id="start-btn" class="primary-btn">Begin</button>
+    </div>
+  </div>
+
+  <!-- Main game -->
+  <div id="game" class="hidden">
+    <header class="topbar">
+      <div class="title-block">
+        <h1>Quilt Room</h1>
+        <p id="player-label" class="player-label"></p>
+      </div>
+
+      <div class="room-info">
+        <h2 id="room-name"></h2>
+        <p id="room-blurb" class="room-blurb"></p>
+        <div class="progress-row">
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+          <span id="progress-text" class="progress-text"></span>
+        </div>
+      </div>
+
+      <button id="reset-btn" class="ghost-btn">Reset my room</button>
+    </header>
+
+    <main class="stage-wrap">
+      <div class="stage stitched" id="stage">
+        <div id="wall" class="wall"></div>
+        <div class="floor-wrap">
+          <div id="floor" class="floor-grid"></div>
+          <div id="player" class="player" title="You"></div>
+        </div>
+      </div>
+
+      <p class="hint">
+        Arrow keys to walk &middot; drag a block onto the wall to hang it &middot;
+        click a hung block to read about it &middot; walk into an open doorway to
+        move to the next room.
+      </p>
+    </main>
+
+    <section class="tray-wrap">
+      <h3>Your quilt blocks <span id="tray-count" class="tray-count"></span></h3>
+      <div id="tray" class="tray"></div>
+    </section>
+  </div>
+
+  <!-- Info card modal -->
+  <div id="info-modal" class="overlay hidden">
+    <div class="overlay-card stitched small">
+      <h2 id="info-name"></h2>
+      <p id="info-origin" class="overlay-copy"></p>
+      <button id="info-close" class="primary-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Finish banner -->
+  <div id="finish-banner" class="overlay hidden">
+    <div class="overlay-card stitched">
+      <p class="eyebrow">All four rooms filled</p>
+      <h2>Your quilt house is complete</h2>
+      <p class="overlay-copy">
+        Take a screenshot of your finished rooms and share it on the class
+        discussion board as part of your Southern folk art exhibit.
+      </p>
+      <button id="finish-close" class="primary-btn">Keep exploring</button>
+    </div>
+  </div>
+
+  <script src="js/quiltData.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/rooms.js"></script>
+  <script src="js/movement.js"></script>
+  <script src="js/dragdrop.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
